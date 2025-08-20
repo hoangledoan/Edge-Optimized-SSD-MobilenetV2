@@ -1,0 +1,38 @@
+networks:
+  smartlib:  
+
+services:
+  difference.bibi:
+    container_name: difference.bibi
+    image: hoangledoan/bibi-difference
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./images:/app/images
+    restart: always
+    networks:
+      - smartlib 
+
+  model_back.bibi:  
+    container_name: back.bibi
+    image: hoangledoan/bibi-model-back
+    ports:
+      - "5001:5001"
+    volumes:
+      - images:/app/images
+    restart: always
+    networks:
+      - smartlib
+  
+  model_front.bibi:  
+    container_name: front.bibi
+    image: hoangledoan/bibi-model-front
+    ports:
+      - "5002:5002"
+    volumes:
+      - images:/app/images
+    restart: always
+    networks:
+      - smartlib 
+
+

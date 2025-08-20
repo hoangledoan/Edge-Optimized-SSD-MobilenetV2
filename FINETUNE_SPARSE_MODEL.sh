@@ -1,0 +1,1 @@
+python compression/fine_grain_prune.py --model_path models_parameters/front_model.pth --dataset_path dataset/front/ --target_accuracy 85 --finetune

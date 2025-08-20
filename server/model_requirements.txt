@@ -1,0 +1,7 @@
+torch
+torchvision
+numpy==1.21.0
+apache-tvm
+opencv-python
+flask
+requests

@@ -1,0 +1,18 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1-mesa-glx libglib2.0-0 ffmpeg libsm6 libxext6 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY server/model_requirements.txt .
+RUN pip install --no-cache-dir -r model_requirements.txt
+
+COPY training/ /app/training/
+COPY utils/ /app/utils/
+COPY tvm_model/back/ /app/tvm_model/
+COPY server/model_back.py /app/
+EXPOSE 5001
+
+CMD ["python3", "model_back.py"]

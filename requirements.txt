@@ -1,0 +1,11 @@
+torch
+torchvision
+matplotlib
+numpy
+torchprofile
+torch-summary
+netron
+tqdm
+opencv-python 
+flask
+pandas
